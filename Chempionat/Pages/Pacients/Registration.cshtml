@@ -1,0 +1,59 @@
+﻿@page
+@model Chempionat.Pages.Pacients.RegistrationModel
+@{
+	<h3>Регистрация пациентов</h3>
+	
+	<form method="post">
+		<p>
+			<label>Имя: </label><br/>
+			<input type="text" name="name" />
+		</p>
+		<p>
+			<label>Фамилия: </label><br />
+			<input type="text" name="name" />
+		</p>
+		<p>
+			<label>Отчество: </label><br />
+			<input type="text" name="name" />
+		</p>
+		<p>
+			<label>Дата рождения: </label><br />
+			<input type="date" name="name" />
+		</p>
+		<p>
+			<label>Место жительства: </label><br />
+			<input type="text" name="name" />
+		</p>
+		<p>
+			<label>Паспортные данные: </label><br />
+			<input placeholder="Серия (4 цифры)" type="text" name="name" maxlength="4" />
+			<input placeholder="Номер (6 цифр)" type="text" name="name" maxlength="6" />
+		</p>
+		<p>
+			<label>Email: </label><br />
+			<input  type="text" name="name" />
+		</p>
+		<p>
+			<label>Дата выдачи медицинской карты: </label><br />
+			<input type="text" name="name" />
+		</p>
+		<p>
+			<label>Место работы: </label><br />
+			<input placeholder="Название компании" type="text" name="name" />
+		</p>
+		<p>
+			<label>Дата выдачи страхового полиса: </label><br />
+			<input  type="date" name="name" />
+		</p>
+		<p>
+			<label>Страховая компания: </label><br />
+		</p>
+		<p>
+			<label >Пол</label><br />
+			<select asp-for="GenderId" asp-items="Model.Genders"></select>
+		</p>
+		
+		<input type="submit" value="Сохранить" />
+	</form>
+
+}

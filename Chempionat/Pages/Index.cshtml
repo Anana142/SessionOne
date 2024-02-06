@@ -1,0 +1,66 @@
+﻿@page "{id?}"
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+  @*   <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h2>DateTime.Now() -> @DateTime.Now.ToString()</h2>
+    <h2>@if(true){
+        @:Вывел с помощью @@: 
+    }</h2>
+
+    <h2>Message из Model -> @Model.Message</h2>
+    <h2>Message из метода PrintMessage -> @Model.PrintMessage();</h2>
+
+    <!--
+        <h2>Request headers</h2><table>
+        @foreach (var header in Request.Headers)
+        {
+                    <tr><td>@header.Key</td><td>@header.Value</td></tr>
+        }
+        </table>
+    --> *@
+
+    @* <h2>@Model.Message</h2>
+    <form method="post">
+        <input type="text" name="username" />
+        <input type="submit" value="Отправить" />
+    </form>
+
+    @{
+        foreach (var item in Model.Values)
+        {
+            <h1>@item</h1>
+        }
+    }
+
+    @functions{
+    string Message { get; set; } = "";
+    public void OnPost()
+    {
+        string name = Request.Form["name"];
+        string age = Request.Form["age"];
+        Message = $"Ваше имя: {name}. Ваш возраст: {age}";
+    }
+    } *@
+
+
+   @*  <form method="post">
+        <p>
+            <label>Имя: </label><br/>
+            <input type="text" name="name"/>
+        </p>
+        <p>
+            <label>Возраст: </label><br />
+            <input type="number" name="Age" />
+        </p>
+        <input type="submit" value="Отправить"/>
+    </form>
+   <h3>@Model.Name</h3> *@
+
+
+    <h2>Id = @Model.Id</h2>
+</div>
