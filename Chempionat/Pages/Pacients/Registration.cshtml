@@ -4,56 +4,76 @@
 	<h3>Регистрация пациентов</h3>
 	
 	<form method="post">
-		<p>
-			<label>Имя: </label><br/>
-			<input type="text" name="name" />
-		</p>
-		<p>
-			<label>Фамилия: </label><br />
-			<input type="text" name="name" />
-		</p>
-		<p>
-			<label>Отчество: </label><br />
-			<input type="text" name="name" />
-		</p>
-		<p>
-			<label>Дата рождения: </label><br />
-			<input type="date" name="name" />
-		</p>
-		<p>
-			<label>Место жительства: </label><br />
-			<input type="text" name="name" />
-		</p>
-		<p>
-			<label>Паспортные данные: </label><br />
-			<input placeholder="Серия (4 цифры)" type="text" name="name" maxlength="4" />
-			<input placeholder="Номер (6 цифр)" type="text" name="name" maxlength="6" />
-		</p>
-		<p>
-			<label>Email: </label><br />
-			<input  type="text" name="name" />
-		</p>
-		<p>
-			<label>Дата выдачи медицинской карты: </label><br />
-			<input type="text" name="name" />
-		</p>
-		<p>
-			<label>Место работы: </label><br />
-			<input placeholder="Название компании" type="text" name="name" />
-		</p>
-		<p>
-			<label>Дата выдачи страхового полиса: </label><br />
-			<input  type="date" name="name" />
-		</p>
-		<p>
-			<label>Страховая компания: </label><br />
-		</p>
-		<p>
-			<label >Пол</label><br />
-			<select asp-for="GenderId" asp-items="Model.Genders"></select>
-		</p>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<span>
+						<p>
+							<label>Имя: </label><br />
+							<input type="text" asp-for="@Model.NewPacient.PacientsName" />
+						</p>
+						<p>
+							<label>Фамилия: </label><br />
+							<input type="text" asp-for="@Model.NewPacient.PacientsSurName" />
+						</p>
+						<p>
+							<label>Отчество: </label><br />
+							<input type="text" asp-for="@Model.NewPacient.PacientsPatronymic" />
+						</p>
+						<p>
+							<label>Пол</label><br />
+							<select asp-for="@Model.NewPacient.PacientsGenderId" asp-items="Model.Genders"></select>
+						</p>
+						<p>
+							<label>Дата рождения: </label><br />
+							<input type="date" asp-for="@Model.NewPacient.PacientsBirthday" />
+						</p>
+						<p>
+							<label>Паспортные данные: </label><br />
+							<input placeholder="Серия (4 цифры)" type="text" name="PacientsPasportDataSerie" maxlength="4" />
+							<input placeholder="Номер (6 цифр)" type="text" name="PacientsPasportDataNumber" maxlength="6" />
+						</p>
+						<p>
+							<label>Место жительства: </label><br />
+							<input type="text" asp-for="@Model.NewPacient.PacientsAddress" />
+						</p>
+						
+					</span>
+				</div>
+				<div class ="col">
+					<span>
+						<p>
+							<label>Номер телефона: </label><br />
+							<input type="tel" asp-for="@Model.NewPacient.PacientsPhoneNumber" />
+						</p>
+						<p>
+							<label>Email: </label><br />
+							<input type="email" asp-for="@Model.NewPacient.PacientsEmail" />
+						</p>
+						<p>
+							<label>Место работы: </label><br />
+							<input placeholder="Название компании" type="text"  />
+						</p>
+
+						// Страховой полис
+						<p>
+							<label>Дата окончания действия страхового полиса: </label><br />
+							<input type="date" asp-for="@Model.NewInsurancePolicy.InsurancePoliciesStopDate" />
+						</p>
+						<p>
+							<label>Страховая компания: </label><br />
+							<select asp-for="@Model.NewInsurancePolicy.InsurancePoliciesCompanyId" asp-items="Model.InsurancyCompanies"></select>
+						</p>
+						
+					</span>
+				</div>
+			</div>
+			
+		</div>
 		
-		<input type="submit" value="Сохранить" />
+		
+		
+		<input type="submit" value="Сохранить"/>
 	</form>
 
 }
